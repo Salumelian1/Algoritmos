@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#define indefinido -99999
+#define indefinido -9999
 
 //tipificación 
 typedef int item;

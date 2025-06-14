@@ -2,16 +2,16 @@
 
 typedef int item; // tipo de dato que contiene la fila
 const int indefinido = -9999;
-struct Nodo
+struct NodoFila
 {
     item dato;
-    struct Nodo* sig;
+    struct NodoFila* sig;
 };
 
 struct Fila
 {
-    Nodo* frente;
-    Nodo* final;
+    NodoFila* frente;
+    NodoFila* final;
     int longitud;
 };
 
@@ -32,7 +32,7 @@ bool EsFilaVacia(Fila F){
 }
 
 Fila Enfila(Fila F,item x){
-    Nodo* aux = new Nodo;
+    NodoFila* aux = new NodoFila;
     aux->dato = x;
     aux->sig = NULL;
     if(EsFilaVacia(F)){
@@ -60,7 +60,7 @@ Fila Defila(Fila F){
     {
         return F;
     }else{
-        Nodo* aux = new Nodo;
+        NodoFila* aux = new NodoFila;
         aux = F.frente;
         if(F.longitud == 1){
             F.final = NULL;
@@ -75,7 +75,7 @@ Fila Defila(Fila F){
 }
 
 void MostrarFila(Fila F) {
-    Nodo* aux = new Nodo;
+    NodoFila* aux = new NodoFila;
     aux = F.frente;
     printf("Fila: ");
     while (aux != NULL) {
