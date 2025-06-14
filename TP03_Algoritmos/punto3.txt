@@ -1,0 +1,12 @@
+Dado un número entero positivo escriba un algoritmo que le permita sumar las cifras que lo 
+componen. Escriba una versión iterativa y otra recursiva de la misma.  
+Ej:   N = 1823 → Retorna   14 
+N = 261 →  Retorna    9
+
+Algoritmo: SumaDeDig: N: entero ---> entero:
+A1: leer(n)
+A2: Si(n < 10 ):
+    A3: returna N
+A4: sino:
+    A4: Retorna (n % 10) + SumaDeDig(n/10)
+A7: fin del si 

@@ -1,0 +1,14 @@
+Diseñe un procedimiento recursivo que, dado un número natural, escriba sus dígitos en 
+orden inverso y separados por un espacio. Ej. N = 1825  → Salida por pantalla: 5 2 8 1 
+
+Algoritmo: Inverso: N: entero --> entero
+A1: Leer (n)
+A2: si (n < 10):
+    A3: Escribir (n)
+A4: sino:
+    A5: x <-- n % 10
+    A7: Escribir (x)
+    A8: Inverso(n/10)
+A9: fin del programa
+
+

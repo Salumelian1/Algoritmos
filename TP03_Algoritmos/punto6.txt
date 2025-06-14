@@ -1,0 +1,25 @@
+Diseñe una versión recursiva de la función pertenece (TP Nº 1 – Ejercicio 2.h).
+
+Funcion del TP01
+bool pertenece(Lista L, item valor) {
+    while (L != NULL) {
+        if (L->dato == valor) {
+            return true;
+        }
+        L = L->siguiente;
+    }
+    return false;
+}
+
+Algoritmo: Pertenece(Lista L: lista enlazada, valor: entero)--> bool
+A1: si (L = nulo):
+    A2: retorna False
+A3: sino:
+    A4: si (L->dato == valor)
+        A5: retorna true
+    A6: sino:
+        A7: retorna Pertenece(L->siguiente,valor)
+    A8: fin del si 
+A9: fin del si
+A10: fin del programa
+    

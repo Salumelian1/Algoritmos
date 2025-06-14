@@ -1,0 +1,16 @@
+Diseñe una función recursiva que, dado un arreglo de n caracteres, devuelva verdadero si 
+el arreglo contiene una palabra palíndrome
+
+
+Algoritmo: palabraPalindrome: palabra: char, inicio: entero, fin: entero ---> bool
+A1: Leer(palabra)
+A2: si(fin <= inicio):
+    A3: returna True
+A4: sino
+    A5: si(palabra[inicio] != palabra[fin]):
+        A6: returna false
+    A7: sino:
+        A8: palabraPalindrome(palabra,inicio +1, fin -1)
+    A9: fin del si
+A10: fin del si
+A11: fin del programa

@@ -1,0 +1,15 @@
+Diseñe una función recursiva que reciba un arreglo de n números enteros y retorne 
+verdadero si los elementos están ordenados en forma ascendente, caso contrario retorna 
+falso.  
+
+Algoritmo: ArregloOrdena(arreglo: entero, inicio: entero, fin: entero)---> bool
+A1: si(fin <= inicio):
+    A2: retorna True
+A3: sino:
+    A4: si(areglo[inicio] > arreglo[fin]):
+        A5: retorna False
+    A6: sino:
+        A7: ArregloOrdena(arreglo,inicio + 1, fin):
+    A8: fin del si
+A9: fin del si
+A10: fin del programa
