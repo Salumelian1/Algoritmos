@@ -1,0 +1,20 @@
+funcion: oerdenado: Entero --> bool
+A1: si num < 10, entonces:
+    A2: retorna True
+A3: sino:
+    A4: aux <--- num % 10
+    A5: si aux < num % 100
+        A6: oerdenado(num/10)
+    A: sino: retorna false
+
+Funcion SonDisJuntos: Conjunto X conjunto ---> bool
+A1: si(esVacio(C1) || esVacio(C2)), entonces:
+    A2: retorna true;
+A3: sino:
+    A4: si (pertenece(X,C2)), entonces:
+        A5: retorna false
+    A6: sino:
+        A7:SonDisJuntos(borrar(C1,x),borrar(C2,Y))
+    A8: fin del si
+A9: fin del si
+A10: fin del programa

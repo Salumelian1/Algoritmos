@@ -36,7 +36,11 @@ void mostrar(Lista L){
 //D Mustrar primer elemento de la lista
 int PrimerElemento(Lista L){
     if(esListaVacia(L)){
+<<<<<<< HEAD
         return (-9999);
+=======
+        return -9999;
+>>>>>>> 9f1c5bfe9bab6769fafe651bc39d357bc9ace687
     }else{
         return L->dato;
     }
@@ -72,9 +76,17 @@ int longitud(Lista L) {
 }
 
 //H) Determinar si un valor pertenece a la lista
+<<<<<<< HEAD
 bool pertenece(Lista L, item valor) {
     while (L != NULL) {
         if (L->dato == valor) {
+=======
+bool pertenece(Lista *L, int valor){
+    nodo *aux = *L;
+    while (aux != NULL)
+    {
+        if(valor == aux->dato){
+>>>>>>> 9f1c5bfe9bab6769fafe651bc39d357bc9ace687
             return true;
         }
         L = L->siguiente;
@@ -86,6 +98,16 @@ bool pertenece(Lista L, item valor) {
 
 Lista eliminarUltimo (Lista *L){
     nodo *aux = *L;
+    if (esListaVacia(*L))
+    {
+        return NULL;
+    }
+    if ((*L)->siguiente == NULL) { 
+        delete *L;
+        *L = NULL;
+        return NULL;
+    }
+    
     while (aux->siguiente->siguiente != NULL)
     {
         aux = aux->siguiente;
@@ -95,6 +117,7 @@ Lista eliminarUltimo (Lista *L){
     return *L;
 }
 
+<<<<<<< HEAD
 bool iguales(Lista L1, Lista L2){
     while (!esListaVacia(L1) && !esListaVacia(L2)){
         if (PrimerElemento(L1) != PrimerElemento(L2)){
@@ -104,4 +127,16 @@ bool iguales(Lista L1, Lista L2){
         L2 = L2->siguiente;
     }
     return esListaVacia(L1) && esListaVacia(L2);
+=======
+bool iguales (Lista L1, Lista L2){
+    while (!esListaVacia(L1) && !esListaVacia(L2))
+    {
+        if(PrimerElemento(L1) != PrimerElemento (L2)){
+            return false;
+        }
+        L1 = borrar(&L1);
+        L2 = borrar(&L2);
+    }
+    return true;
+>>>>>>> 9f1c5bfe9bab6769fafe651bc39d357bc9ace687
 }

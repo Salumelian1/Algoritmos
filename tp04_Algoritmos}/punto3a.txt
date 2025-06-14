@@ -1,0 +1,8 @@
+algoritmo: maximoDeposito: Cuenta ---> Dinero
+A1: si (Saldo(cuentaVacia)):
+    A2: retorna 0
+A3: sino:
+    A4: extraer(C,u)
+    A5: retorna maximoDeposito(C)
+A6: fin del si
+A7: fin del programa

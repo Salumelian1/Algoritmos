@@ -1,0 +1,40 @@
+Sintaxis:
+ComisionVAcia: --> Comision
+AltaAlumno: Comision X Alumno ---> Comision
+EstaVacia: Comision ---> booleano
+Cantidad: Comision ---> Entero
+BajaAlumno: Comision X Alumno ---> Comision
+BajaUltimo: Comision X Alumno --> Comision
+UltimoIscripto: Comision X Alumno ---> Alumno
+Esta: Comision X Alumno ---> booleano
+HayComunes: Comision X Comision --> booleano
+
+Semantica: Para todo C perteneciente a Comision y para todo X, Y perteneciente a Alumno
+
+EstaVacia(ComisionVAcia) = True
+EstaVacia(AltaAlumno(C,X)) = false
+
+Cantidad(ComisionVAcia) = 0
+Cantidad(AltaAlumno(C,X)) = 1 + cantidad(C)
+
+BajaAlumno(ComisionVAcia) = ComisionVAcia
+BajaAlumno(AltaAlumno(ComisionVAcia,X),y) = ComisionVAcia
+BajaAlumno(AltaAlumno(C,X),Y) = si X = Y, entonces C
+                                sino: AltaAlumno(BajaAlumno(C,Y),X)
+                        
+BajaUltimo(ComisionVAcia) = ComisionVAcia
+BajaUltimo(AltaAlumno(ComisionVAcia,X)) = ComisionVAcia
+BajaUltimo(AltaAlumno(C,X)) = C
+
+UltimoIscripto(ComisionVAcia) = Indefinido
+UltimoIscripto(AltaAlumno(C,X)) = x
+
+Esta(ComisionVAcia) = false
+Esta(AltaAlumno(C,X),Y) = si X = Y entonces true
+                        Sino: Esta(C,Y)
+
+HayComunes(ComisionVAcia, ComisionVAcia) = true
+HayComunes(ComisionVAcia,AltaAlumno(C,X)) = false
+HayComunes(AltaAlumno(C,X),ComisionVAcia) = false
+HayComunes(AltaAlumno(C1,x),AltaAlumno(C2,Y))= si X = Y entonces true
+                                                sino: HayComunes(C1,C2)
