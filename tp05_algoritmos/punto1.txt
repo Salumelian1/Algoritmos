@@ -1,0 +1,29 @@
+(1) (a) (i)Fondo: pila ---> item u indefinido, para todo P perteneciente a Pila y para todo x perteneciente a item
+
+fondo(pilaVacia) = indefinido
+fondo(push(pilavacia,x)) = x
+fondo(push(p,x)) = si espilaVacia entonces:
+                        x
+                    sino: fondo(P)
+
+(ii) POPF: pila ---> pila, para todo P perteneciente a Pila y para todo x perteneciente a item
+POPF(pilaVacia) = pilavacia
+POPF(Push(pilaVacia,x)) = pilaVacia
+POPF(Push(P,x)) =  push(POPF(p),x)
+
+(iii) POPN: Pila X Entero ---> Pila
+POPN(pilaVacia,y) = pilaVacia
+POPN(push(pilaVacia,X),y) = pilaVacia
+POPN(push(P,X),y) = POPN(P,y-1)
+
+(IV)Funcion: EsSimetrica: P: pila ---> booleano
+A1: si (espilaVacia(P)), entonces:
+        A2: retorna true
+    A: si (espilaVacia(POP(P))), entonces:
+        A: true
+A3: sino:
+        A3: si(fondo(P) = Top(P)), entonces:
+            A4: POPF(P)
+            A5: POP(P)
+            A6: EsSimetrica(P)
+        A7: sino : retorna false

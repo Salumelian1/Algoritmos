@@ -1,0 +1,33 @@
+Algoritmo: Inverso(a): entero --> entero
+    Si  a < 10, entonces:
+        retorna a
+    Sino:
+        retorna (" ")&& a % 10 && Inverso(a/10)
+
+ADT mochila(Objeto)
+sintaxis:
+borrarUltimo: mochila --> mochila
+VerUltimo: mochila --> Objeto U indefinido
+pertenece: mochila --> booleano
+juntar: mochila X mochila --> mochila
+CantidadDeObjetos: mochila --> entero 
+
+Semantica:
+borrarUltimo(mochilaVacia) = mochilaVacia
+borrarUltimo(agregar(mochilaVacia,X)) = mochilaVacia
+borrarUltimo(agregar(M,X)) = M
+
+VerUltimo(mochilaVacia) = indefinido
+VerUltimo(agregar(M,X)) = x
+
+pertenece(mochilaVacia,Y) = false
+pertenece(agregar(M,X),Y) = si X = Y entonces true
+                            Sino: pertenece(M,Y)
+
+Juntar(mochilaVacia,mochilaVacia) = mochilaVacia
+juntar(mochilaVacia, M2) = M2
+juntar(M1,mochilaVacia) = M1
+juntar(M1,M2) = agregar(M1,Y) && borrarUltimo(M2)
+
+CantidadDeObjetos(mochilaVacia) = 0
+CantidadDeObjetos(agregar(M,X)) = 1 + CantidadDeObjetos(M)

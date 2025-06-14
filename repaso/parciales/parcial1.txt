@@ -1,0 +1,58 @@
+ADT Linea
+
+sintaxis:
+LineVacia: --> Linea
+Agregar: Linea X char  --> Linea
+EsLineaVacia: linea ---> bool
+Pertenece: Linea X char ---> bool
+BorrarUltimo: Linea ---> Linea U indefinido
+Longitud: Linea ---> entero
+SeleccionarUltimo: Linea --> char u indefinido
+
+Semantica: 
+
+para todo L Pertenece a la Linea y para todo C, X perteneciente a char
+
+EsLineaVacia(LineVacia) = True
+EsLineaVacia(Agregar(L,C)) = False
+
+Pertenece(LineVacia,X) = False
+pertenece(Agregar(L,X),Y) = si x = Y entonces True
+                            sino: pertenece(L,Y)
+
+BorrarUltimo(LineVacia) = indefinido
+BorrarUltimo(Agregar(LineVacia,X)) = LineVacia
+BorrarUltimo(Agregar(L,X)) = L
+
+Longitud(LineVacia) = 0
+Longitud(Agregar(L,X)) = 1 + Longitud(L)
+
+SeleccionarUltimo(LineVacia) = indefinido
+SeleccionarUltimo(Agregar(L,X)) = X
+
+RepeticionUltimo: Linea --> entero
+A0 repeticion <-- 0
+A1: si (EsLineaVacia(L)) entonces:
+    A2 retorna repeticion
+A3: sino:
+    A4: ultimo <-- SeleccionarUltimo(L)
+    A5: hacer Longitud(L) veces:
+        BorrarUltimo(L)
+        A6: si(ultimo == SeleccionarUltimo(L)) entonces
+            A7: repeticion ++
+        A8: fin del si
+    A9: fin del hacer
+A10: fin del si
+A11: retorna repeticion
+
+
+Iguales: L1: linea, L2: Linea ---> bool
+A1: si (EsLineaVacia(L1) || EsLineaVacia(L2)) entonces:
+        A2: retorna False
+A3: si (EsLineaVacia(L1) AND EsLineaVacia(L2)) entonces:
+        A4: retorna True
+A5: si (SeleccionarUltimo(L1) != SeleccionarUltimo(L2)) entonces:
+        A6: retorna False
+a7: sino: retorna iguales(BorrarUltimo(L1),BorrarUltimo(L2))
+       
+        

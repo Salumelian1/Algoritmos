@@ -7,7 +7,7 @@ struct nodo{
 };typedef struct nodo* Lista;
 
 //2) a)Crear una lista 
-Lista craerLista (){
+Lista crearLista (){
     Lista L;
     L = NULL;
     return L;
@@ -35,11 +35,11 @@ void mostrar(Lista L){
 }
 
 //D Mustrar primer elemento de la lista
-void mostarPrimerElemento(Lista L){
+int PrimerElemento(Lista L){
     if(esListaVacia(L)){
-        printf("La lista no tiene elementos");
+        return -9999;
     }else{
-        printf("El primer elemento de la lista es %d",L->dato);
+        return L->dato;
     }
 }
 
@@ -79,7 +79,7 @@ bool pertenece(Lista *L, int valor){
     nodo *aux = *L;
     while (aux != NULL)
     {
-        if(valor == (*L)->dato){
+        if(valor == aux->dato){
             return true;
         }
         aux = aux->siguiente;
@@ -91,6 +91,16 @@ bool pertenece(Lista *L, int valor){
 
 Lista eliminarUltimo (Lista *L){
     nodo *aux = *L;
+    if (esListaVacia(*L))
+    {
+        return NULL;
+    }
+    if ((*L)->siguiente == NULL) { 
+        delete *L;
+        *L = NULL;
+        return NULL;
+    }
+    
     while (aux->siguiente->siguiente != NULL)
     {
         aux = aux->siguiente;
@@ -98,4 +108,16 @@ Lista eliminarUltimo (Lista *L){
     delete aux->siguiente;
     aux->siguiente = NULL;
     return *L;
+}
+
+bool iguales (Lista L1, Lista L2){
+    while (!esListaVacia(L1) && !esListaVacia(L2))
+    {
+        if(PrimerElemento(L1) != PrimerElemento (L2)){
+            return false;
+        }
+        L1 = borrar(&L1);
+        L2 = borrar(&L2);
+    }
+    return true;
 }
